@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravolt\Avatar\Avatar;
+use LiraUi\Auth\Concerns\HasEmailVerification;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasEmailVerification;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -56,6 +59,7 @@ class User extends Authenticatable
      */
     protected $appends = [
         'name',
+        'avatar',
     ];
 
     /**
@@ -65,6 +69,18 @@ class User extends Authenticatable
     {
         return Attribute::get(function (): string {
             return $this->first_name.' '.$this->last_name;
+        });
+    }
+
+    /**
+     * Get the user's avatar.
+     */
+    protected function avatar(): Attribute
+    {
+        return Attribute::get(function (): string {
+            $avatar = app(Avatar::class);
+
+            return $avatar->create($this->email)->toGravatar(['d' => 'initials', 'r' => 'g', 's' => 100]);
         });
     }
 }

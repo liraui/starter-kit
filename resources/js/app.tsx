@@ -8,9 +8,24 @@ import { initializeTheme } from './hooks/use-appearance';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
+const packagePages = {
+    ...import.meta.glob('@auth/pages/**/*.tsx'),
+};
+
 createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
-    resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
+    resolve: (name) => {
+        const [namespace, namespaceFilename] = name.includes('::') ? name.split('::') : [null, name];
+
+        if (namespace) {
+            const [vendorName, vendorPackageName] = namespace.split('-');
+            const packagePath = `/vendor/${vendorName}/${vendorPackageName}/resources/js/pages/${namespaceFilename}.tsx`;
+            
+            return resolvePageComponent(packagePath, packagePages);
+        }
+
+        return resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx'));
+    },
     setup({ el, App, props }) {
         const root = createRoot(el);
 

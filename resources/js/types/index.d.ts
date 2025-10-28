@@ -1,6 +1,3 @@
-import { InertiaLinkProps } from '@inertiajs/react';
-import { LucideIcon } from 'lucide-react';
-
 export interface Auth {
     user: User;
 }

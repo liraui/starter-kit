@@ -1,6 +1,7 @@
 /.phpunit.cache
 /bootstrap/ssr
 /node_modules
+/liraui
 /public/build
 /public/hot
 /public/storage
