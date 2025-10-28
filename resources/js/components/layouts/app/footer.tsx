@@ -15,9 +15,9 @@ function AppFooter() {
                     </div>
                     <div className="flex-1" />
                     <nav className="flex items-center gap-8">
-                        <Link href="#" className={cn('hover:text-foreground/80 transition-colors')}>
+                        <a href="https://github.com/liraui/starter-kit" target="_blank" className={cn('hover:text-foreground/80 transition-colors')}>
                             Github
-                        </Link>
+                        </a>
                         <AppearanceToggle />
                     </nav>
                 </div>
