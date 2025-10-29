@@ -33,7 +33,7 @@ function AppHeader() {
                             <Link
                                 href={dashboard()}
                                 className={cn('text-primary', {
-                                    'text-primary font-medium': page.url === dashboard(),
+                                    'text-primary font-medium': page.url === dashboard().url,
                                 })}
                             >
                                 Dashboard
