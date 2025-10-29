@@ -1,5 +1,6 @@
+import { DashboardFooter } from '@/components/layouts/dashboard/footer';
+import { AppHeader } from '@/components/layouts/dashboard/header';
 import React from 'react';
-import { AppHeader } from './header';
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
@@ -10,10 +11,13 @@ function DashboardLayout({ children, ...props }: DashboardLayoutProps) {
         <div className="relative">
             <div className="bg-background">
                 <div {...props}>
-                    <div className="w-full border-b">
+                    <div>
                         <AppHeader />
                     </div>
-                    <div>{children}</div>
+                    <div className="bg-muted/25 m-2 rounded-md border">{children}</div>
+                    <div>
+                        <DashboardFooter />
+                    </div>
                 </div>
             </div>
         </div>

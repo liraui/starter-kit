@@ -1,3 +1,5 @@
+import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
+import { showLogin, showRegister } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -9,9 +11,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Logo } from '@/components/ui/logo';
 import { cn } from '@/lib/utils';
-import { dashboard } from '@/routes';
-import { login, logout, register } from '@/routes/auth';
-import { settings } from '@/routes/namespaced/liraui-auth/profile';
+import { logout } from '@/routes/auth';
+import { settings as showProfileSettings } from '@/routes/namespaced/liraui-auth/profile';
 import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
@@ -23,7 +24,7 @@ function AppHeader() {
     return (
         <header className="flex h-12 items-center">
             <div className="grow">
-                <div className="mx-auto flex h-12 max-w-7xl items-center px-5">
+                <div className="mx-auto flex h-12 max-w-7xl items-center">
                     <div className="flex items-center gap-16">
                         <Link href="/" className="flex items-center">
                             <Logo variant="primary" withText />
@@ -44,16 +45,18 @@ function AppHeader() {
                                     </Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end" className="z-999">
-                                    <DropdownMenuItem>
-                                        <Link href={dashboard()}>Dashboard</Link>
+                                    <DropdownMenuItem asChild>
+                                        <Link href={showDashboard()} className='cursor-pointer'>Dashboard</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuGroup>
                                         <DropdownMenuItem asChild>
-                                            <Link href={settings()} className='w-full'>Settings</Link>
+                                            <Link href={showProfileSettings()} className="w-full cursor-pointer">
+                                                Settings
+                                            </Link>
                                         </DropdownMenuItem>
                                         <DropdownMenuItem asChild>
-                                            <Link href={logout()} method="post" className='w-full'>
+                                            <Link href={logout()} method="post" className="w-full cursor-pointer">
                                                 Log out
                                             </Link>
                                         </DropdownMenuItem>
@@ -64,10 +67,10 @@ function AppHeader() {
                         {!page.props.auth.user && (
                             <div className="flex gap-4">
                                 <Button className="font-semibold" variant={'ghost'} size={'sm'}>
-                                    <Link href={login()}>Log in</Link>
+                                    <Link href={showLogin()}>Log in</Link>
                                 </Button>
                                 <Button className="font-semibold" size={'sm'}>
-                                    <Link href={register()}>Register</Link>
+                                    <Link href={showRegister()}>Register</Link>
                                 </Button>
                             </div>
                         )}

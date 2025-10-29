@@ -1,3 +1,4 @@
+import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -10,9 +11,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Logo } from '@/components/ui/logo';
 import { cn } from '@/lib/utils';
-import { dashboard } from '@/routes';
 import { logout } from '@/routes/auth';
-import { settings } from '@/routes/namespaced/liraui-auth/profile';
+import { settings as showProfileSettings } from '@/routes/namespaced/liraui-auth/profile';
 import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
@@ -22,7 +22,7 @@ function AppHeader() {
     const { auth } = usePage<SharedData>().props;
 
     return (
-        <header className="mx-auto w-full max-w-7xl px-8">
+        <header className="mx-auto w-full max-w-7xl">
             <div className="bg-background/90 backdrop-blur-2xl">
                 <div className="mx-auto flex h-12 items-center">
                     <div className="flex items-center gap-16">
@@ -31,9 +31,9 @@ function AppHeader() {
                         </Link>
                         <div className="flex items-center gap-8">
                             <Link
-                                href={dashboard()}
+                                href={showDashboard()}
                                 className={cn('text-primary', {
-                                    'text-primary font-medium': page.url === dashboard().url,
+                                    'text-primary font-medium': page.url === showDashboard().url,
                                 })}
                             >
                                 Dashboard
@@ -53,10 +53,12 @@ function AppHeader() {
                                 <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
                                     <DropdownMenuItem asChild>
-                                        <Link href={settings()} className='w-full'>Settings</Link>
+                                        <Link href={showProfileSettings()} className="w-full cursor-pointer">
+                                                Settings
+                                            </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
-                                        <Link href={logout()} method="post" className='w-full'>
+                                        <Link href={logout()} method="post" className="w-full cursor-pointer">
                                             Log out
                                         </Link>
                                     </DropdownMenuItem>

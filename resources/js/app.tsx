@@ -20,7 +20,7 @@ createInertiaApp({
         if (namespace) {
             const [vendorName, vendorPackageName] = namespace.split('-');
             const packagePath = `/vendor/${vendorName}/${vendorPackageName}/resources/js/pages/${namespaceFilename}.tsx`;
-            
+
             return resolvePageComponent(packagePath, packagePages);
         }
 

@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Spatie\RouteAttributes\Attributes\Get;
 
-class WelcomeController extends Controller
+class HomeController extends Controller
 {
     #[Get(
         uri: '/',
-        name: 'welcome',
+        name: 'home',
         middleware: [
             'web',
         ]
     )]
-    public function showWelcome()
+    public function showHome()
     {
         return Inertia::render('welcome');
     }
