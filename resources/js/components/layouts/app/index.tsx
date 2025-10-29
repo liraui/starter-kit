@@ -14,12 +14,10 @@ function AppLayout({ children, ...props }: AppLayoutProps) {
                         <AppHeader />
                         <div className="via-border absolute right-0 bottom-0 left-0 h-px bg-linear-to-r from-transparent to-transparent"></div>
                     </div>
-                    <div className="relative mx-auto flex max-w-7xl gap-8">
-                        <div className="flex-1">
-                            <div className="max-w-full">{children}</div>
-                        </div>
+                    <div className="relative mx-auto max-w-7xl flex gap-8">
+                        <main>{children}</main>
                     </div>
-                    <div className="bg-background/80 relative backdrop-blur-md">
+                    <div className="bg-background/80 relative backdrop-blur-md z-999">
                         <div className="via-border absolute top-0 right-0 left-0 h-px bg-linear-to-r from-transparent to-transparent"></div>
                         <AppFooter />
                     </div>

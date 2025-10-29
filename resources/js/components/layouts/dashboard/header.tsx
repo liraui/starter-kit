@@ -1,4 +1,6 @@
 import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
+import { submitLogout } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
+import { showProfileSettings } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -11,8 +13,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Logo } from '@/components/ui/logo';
 import { cn } from '@/lib/utils';
-import { logout } from '@/routes/auth';
-import { settings as showProfileSettings } from '@/routes/namespaced/liraui-auth/profile';
 import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
@@ -58,7 +58,7 @@ function AppHeader() {
                                             </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
-                                        <Link href={logout()} method="post" className="w-full cursor-pointer">
+                                        <Link href={submitLogout()} method="post" className="w-full cursor-pointer">
                                             Log out
                                         </Link>
                                     </DropdownMenuItem>
