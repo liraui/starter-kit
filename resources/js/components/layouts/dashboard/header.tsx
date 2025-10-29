@@ -54,8 +54,8 @@ function AppHeader() {
                                 <DropdownMenuGroup>
                                     <DropdownMenuItem asChild>
                                         <Link href={showProfileSettings()} className="w-full cursor-pointer">
-                                                Settings
-                                            </Link>
+                                            Settings
+                                        </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
                                         <Link href={submitLogout()} method="post" className="w-full cursor-pointer">

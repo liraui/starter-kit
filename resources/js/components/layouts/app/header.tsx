@@ -45,7 +45,9 @@ function AppHeader() {
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end" className="z-999">
                                     <DropdownMenuItem asChild>
-                                        <Link href={showDashboard()} className='cursor-pointer'>Dashboard</Link>
+                                        <Link href={showDashboard()} className="cursor-pointer">
+                                            Dashboard
+                                        </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuGroup>
