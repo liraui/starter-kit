@@ -1,6 +1,6 @@
+import { showProfileSettings } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
 import { SubHeader } from '@/components/layouts/dashboard/sub-header';
 import { cn } from '@/lib/utils';
-import { settings as showProfileSettings } from '@/routes/namespaced/liraui-auth/profile';
 import { Link, usePage } from '@inertiajs/react';
 
 function ProfileNavigation() {
