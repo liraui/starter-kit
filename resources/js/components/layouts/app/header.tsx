@@ -1,6 +1,7 @@
 import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
-import { showLogin, showRegister, submitLogout } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
-import { showProfileSettings } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
+import { showHome } from '@/actions/App/Http/Controllers/HomeController';
+import { showLoginForm, showRegistrationForm, logout } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
+import { showProfile } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -25,11 +26,11 @@ function AppHeader() {
             <div className="grow">
                 <div className="mx-auto flex h-12 max-w-7xl items-center">
                     <div className="flex items-center gap-16">
-                        <Link href="/" className="flex items-center">
+                        <Link href={showHome.url()} className="flex items-center">
                             <Logo variant="primary" withText />
                         </Link>
                         <div className="flex items-center gap-6">
-                            <Link href="/" className={cn(page.url === '/' ? 'text-primary font-semibold' : 'text-muted-foreground')}>
+                            <Link href={showHome.url()} className={cn(page.url === showHome.url() ? 'text-primary font-semibold' : 'text-muted-foreground')}>
                                 Home
                             </Link>
                         </div>
@@ -45,19 +46,19 @@ function AppHeader() {
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end" className="z-999">
                                     <DropdownMenuItem asChild>
-                                        <Link href={showDashboard()} className="cursor-pointer">
+                                        <Link href={showDashboard.url()} className="cursor-pointer">
                                             Dashboard
                                         </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuGroup>
                                         <DropdownMenuItem asChild>
-                                            <Link href={showProfileSettings()} className="w-full cursor-pointer">
+                                            <Link href={showProfile.url()} className="w-full cursor-pointer">
                                                 Settings
                                             </Link>
                                         </DropdownMenuItem>
                                         <DropdownMenuItem asChild>
-                                            <Link href={submitLogout()} method="post" className="w-full cursor-pointer">
+                                            <Link href={logout.url()} method="post" className="w-full cursor-pointer">
                                                 Log out
                                             </Link>
                                         </DropdownMenuItem>
@@ -68,10 +69,10 @@ function AppHeader() {
                         {!page.props.auth.user && (
                             <div className="flex gap-4">
                                 <Button className="font-semibold" variant={'ghost'} size={'sm'}>
-                                    <Link href={showLogin()}>Log in</Link>
+                                    <Link href={showLoginForm.url()}>Log in</Link>
                                 </Button>
                                 <Button className="font-semibold" size={'sm'}>
-                                    <Link href={showRegister()}>Register</Link>
+                                    <Link href={showRegistrationForm.url()}>Register</Link>
                                 </Button>
                             </div>
                         )}

@@ -1,6 +1,7 @@
 import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
-import { submitLogout } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
-import { showProfileSettings } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
+import { showHome } from '@/actions/App/Http/Controllers/HomeController';
+import { logout } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
+import { showProfile } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -26,14 +27,14 @@ function AppHeader() {
             <div className="bg-background/90 backdrop-blur-2xl">
                 <div className="mx-auto flex h-12 items-center">
                     <div className="flex items-center gap-16">
-                        <Link href="/" className="flex items-center">
+                        <Link href={showHome.url()} className="flex items-center">
                             <Logo variant="primary" />
                         </Link>
                         <div className="flex items-center gap-8">
                             <Link
-                                href={showDashboard()}
+                                href={showDashboard.url()}
                                 className={cn('text-primary', {
-                                    'text-primary font-medium': page.url === showDashboard().url,
+                                    'text-primary font-medium': page.url === showDashboard.url(),
                                 })}
                             >
                                 Dashboard
@@ -53,12 +54,12 @@ function AppHeader() {
                                 <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
                                     <DropdownMenuItem asChild>
-                                        <Link href={showProfileSettings()} className="w-full cursor-pointer">
+                                        <Link href={showProfile.url()} className="w-full cursor-pointer">
                                             Settings
                                         </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
-                                        <Link href={submitLogout()} method="post" className="w-full cursor-pointer">
+                                        <Link href={logout.url()} method="post" className="w-full cursor-pointer">
                                             Log out
                                         </Link>
                                     </DropdownMenuItem>

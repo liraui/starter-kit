@@ -1,3 +1,4 @@
+import { showHome } from '@/actions/App/Http/Controllers/HomeController';
 import { AppearanceToggle } from '@/components/appeareance-toggle';
 import { Logo } from '@/components/ui/logo';
 import { cn } from '@/lib/utils';
@@ -9,7 +10,7 @@ function AppFooter() {
             <div className="grow">
                 <div className="mx-auto flex h-12 max-w-7xl items-center">
                     <div className="flex gap-8">
-                        <Link href="/" className="flex items-center">
+                        <Link href={showHome.url()} className="flex items-center">
                             <Logo variant="primary" />
                         </Link>
                     </div>
