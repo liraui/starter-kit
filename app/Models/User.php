@@ -78,9 +78,42 @@ class User extends Authenticatable
     protected function avatar(): Attribute
     {
         return Attribute::get(function (): string {
-            $avatar = app(Avatar::class);
+            $avatar = new Avatar([
+                'shape' => 'square',
+                'chars' => 1,
+                'width' => 100,
+                'height' => 100,
+                'fontSize' => 48,
+                'backgrounds' => [
+                    '#4B8BBE',
+                    '#306998',
+                    '#FFE873',
+                    '#FFD43B',
+                    '#646464',
+                    '#FF6F61',
+                    '#6A4C93',
+                    '#20B2AA',
+                    '#FFB347',
+                    '#8FBC8F',
+                ],
+                'foregrounds' => [
+                    '#FFFFFF',
+                    '#FFFFFF',
+                    '#333333',
+                    '#333333',
+                    '#FFFFFF',
+                    '#FFFFFF',
+                    '#FFFFFF',
+                    '#FFFFFF',
+                    '#333333',
+                    '#FFFFFF',
+                ],
+                'border' => [
+                    'size' => 0,
+                ],
+            ]);
 
-            return $avatar->create($this->email)->toGravatar(['d' => 'initials', 'r' => 'g', 's' => 100]);
+            return $avatar->create($this->name)->toBase64();
         });
     }
 }
