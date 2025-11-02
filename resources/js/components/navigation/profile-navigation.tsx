@@ -1,5 +1,5 @@
 import { showProfile } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
-import { SubHeader } from '@/components/layouts/dashboard/sub-header';
+import { SubHeader } from '@/layouts/sub-header';
 import { cn } from '@/lib/utils';
 import { Link, usePage } from '@inertiajs/react';
 

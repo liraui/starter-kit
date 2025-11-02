@@ -1,11 +1,6 @@
 import { showHome } from '@/actions/App/Http/Controllers/HomeController';
+import type { SubHeaderProps } from '@/types/layouts';
 import { Link } from '@inertiajs/react';
-import React from 'react';
-
-interface SubHeaderProps {
-    title: string;
-    children: React.ReactNode;
-}
 
 function SubHeader({ title, children }: SubHeaderProps) {
     return (

@@ -1,10 +1,10 @@
-import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
-import { showHome } from '@/actions/App/Http/Controllers/HomeController';
-import { AppearanceToggle } from '@/components/appeareance-toggle';
+import { AppearanceToggle } from '@/components/appearance-toggle';
 import { Logo } from '@/components/ui/logo';
+import { showHome } from '@/actions/App/Http/Controllers/HomeController';
+import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
 
-function DashboardFooter() {
+function AppFooter() {
     return (
         <footer className="flex h-12 items-center">
             <div className="grow">
@@ -16,8 +16,9 @@ function DashboardFooter() {
                     </div>
                     <div className="flex-1" />
                     <nav className="flex items-center gap-8">
-                        <Link href={showHome.url()}>Home</Link>
-                        <Link href={showDashboard.url()}>Dashboard</Link>
+                        <a href="https://github.com/liraui/starter-kit" target="_blank" className={cn('hover:text-foreground/80 transition-colors')}>
+                            Github
+                        </a>
                         <AppearanceToggle />
                     </nav>
                 </div>
@@ -26,4 +27,4 @@ function DashboardFooter() {
     );
 }
 
-export { DashboardFooter };
+export { AppFooter };

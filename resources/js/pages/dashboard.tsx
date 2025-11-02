@@ -1,4 +1,4 @@
-import { DashboardLayout } from '@/components/layouts/dashboard';
+import { DashboardLayout } from '@/layouts/dashboard-layout';
 
 export default function Dashboard() {
     return <div>{/*  */}</div>;

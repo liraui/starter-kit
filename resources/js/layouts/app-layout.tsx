@@ -1,9 +1,6 @@
-import { AppHeader } from '@/components/layouts/app/header';
-import { AppFooter } from './footer';
-
-interface AppLayoutProps {
-    children: React.ReactNode;
-}
+import { AppHeader } from '@/layouts/app-header';
+import { AppFooter } from '@/layouts/app-footer';
+import type { AppLayoutProps } from '@/types/layouts';
 
 function AppLayout({ children, ...props }: AppLayoutProps) {
     return (

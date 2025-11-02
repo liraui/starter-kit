@@ -14,12 +14,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Logo } from '@/components/ui/logo';
 import { cn } from '@/lib/utils';
-import { SharedData } from '@/types';
+import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
-function AppHeader() {
+function DashboardHeader() {
     const page = usePage<SharedData>();
-
     const { auth } = usePage<SharedData>().props;
 
     return (
@@ -73,4 +72,4 @@ function AppHeader() {
     );
 }
 
-export { AppHeader };
+export { DashboardHeader };

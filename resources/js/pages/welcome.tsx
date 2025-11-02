@@ -1,4 +1,4 @@
-import { AppLayout } from '@/components/layouts/app';
+import { AppLayout } from '@/layouts/app-layout';
 import { Button } from '@/components/ui/button';
 import { ArrowRightIcon, BookTextIcon } from 'lucide-react';
 

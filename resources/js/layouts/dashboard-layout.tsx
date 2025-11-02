@@ -1,10 +1,6 @@
-import { DashboardFooter } from '@/components/layouts/dashboard/footer';
-import { AppHeader } from '@/components/layouts/dashboard/header';
-import React from 'react';
-
-interface DashboardLayoutProps {
-    children: React.ReactNode;
-}
+import { DashboardHeader } from '@/layouts/dashboard-header';
+import { DashboardFooter } from '@/layouts/dashboard-footer';
+import type { DashboardLayoutProps } from '@/types/layouts';
 
 function DashboardLayout({ children, ...props }: DashboardLayoutProps) {
     return (
@@ -12,7 +8,7 @@ function DashboardLayout({ children, ...props }: DashboardLayoutProps) {
             <div className="bg-background">
                 <div {...props}>
                     <div>
-                        <AppHeader />
+                        <DashboardHeader />
                     </div>
                     <div className="bg-muted/35 dark:bg-muted/10 m-2 rounded-md border">
                         <main className="mx-auto min-h-[calc(100svh-8rem)] max-w-7xl flex-col gap-8">{children}</main>
