@@ -14,7 +14,7 @@ function DashboardLayout({ children, ...props }: DashboardLayoutProps) {
                     <div>
                         <AppHeader />
                     </div>
-                    <div className="bg-muted/35 m-2 rounded-md border">
+                    <div className="bg-muted/35 dark:bg-muted/10 m-2 rounded-md border">
                         <main className="mx-auto min-h-[calc(100svh-8rem)] max-w-7xl flex-col gap-8">{children}</main>
                     </div>
                     <div>

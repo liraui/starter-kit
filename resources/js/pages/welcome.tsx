@@ -25,7 +25,6 @@ export default function Welcome() {
                 </span>
                 <div className="outline-border bg-muted mb-4 rounded-t-xl border p-1 outline outline-offset-6">
                     <div className="bg-background relative aspect-video overflow-hidden rounded-t-xl">
-                        <div className="bg-muted/25 absolute h-full w-full" />
                         <img src="/images/light/full-docs.png" className="block dark:hidden" alt="Documentation package" />
                         <img src="/images/dark/full-docs.png" className="hidden dark:block" alt="Documentation package" />
                         <div className="absolute inset-0 top-32 z-20 flex items-start justify-center sm:top-40 xl:top-56 2xl:top-72">
