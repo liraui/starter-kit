@@ -2517,18 +2517,18 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:liraui/auth.git",
-                "reference": "289ceeff5f5845217f6a0d15e8e5678042be33b5"
+                "reference": "d66e8903a8db536530b034a9a22c4ccd713c1a0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liraui/auth/zipball/289ceeff5f5845217f6a0d15e8e5678042be33b5",
-                "reference": "289ceeff5f5845217f6a0d15e8e5678042be33b5",
+                "url": "https://api.github.com/repos/liraui/auth/zipball/d66e8903a8db536530b034a9a22c4ccd713c1a0f",
+                "reference": "d66e8903a8db536530b034a9a22c4ccd713c1a0f",
                 "shasum": ""
             },
             "require": {
                 "jenssegers/agent": "^2.6",
                 "laravel/wayfinder": "^0.1.12",
-                "laravolt/avatar": "^6.3",
+                "laravolt/avatar": "^6.3.1",
                 "php": "^8.4",
                 "pragmarx/google2fa": "^9.0",
                 "spatie/laravel-route-attributes": "^1.25"
@@ -2600,7 +2600,7 @@
                 "source": "https://github.com/liraui/auth/tree/main",
                 "issues": "https://github.com/liraui/auth/issues"
             },
-            "time": "2025-10-30T00:16:22+00:00"
+            "time": "2025-11-02T23:27:50+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
