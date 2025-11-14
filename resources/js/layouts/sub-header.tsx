@@ -4,8 +4,8 @@ import { Link } from '@inertiajs/react';
 
 function SubHeader({ title, children }: SubHeaderProps) {
     return (
-        <nav>
-            <div className="mx-auto flex h-12 max-w-7xl items-center border-b bg-transparent">
+        <nav className='border-b border-border/25'>
+            <div className="mx-auto flex h-12 max-w-7xl items-center bg-transparent">
                 <div className="flex items-center gap-8">
                     <div className="flex items-center gap-2">
                         <Link href={showHome.url()} className="flex items-center gap-x-3">

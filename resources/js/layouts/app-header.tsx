@@ -1,6 +1,6 @@
 import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
 import { showHome } from '@/actions/App/Http/Controllers/HomeController';
-import { showLoginForm, showRegistrationForm, logout } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
+import { logout, showLoginForm, showRegistrationForm } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
 import { showProfile } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
 import { Button } from '@/components/ui/button';
 import {
@@ -29,7 +29,10 @@ function AppHeader() {
                             <Logo variant="primary" withText />
                         </Link>
                         <div className="flex items-center gap-6">
-                            <Link href={showHome.url()} className={cn(page.url === showHome.url() ? 'text-primary font-semibold' : 'text-muted-foreground')}>
+                            <Link
+                                href={showHome.url()}
+                                className={cn(page.url === showHome.url() ? 'text-primary font-semibold' : 'text-muted-foreground')}
+                            >
                                 Home
                             </Link>
                         </div>

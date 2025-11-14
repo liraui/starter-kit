@@ -1,5 +1,5 @@
-import { AppHeader } from '@/layouts/app-header';
 import { AppFooter } from '@/layouts/app-footer';
+import { AppHeader } from '@/layouts/app-header';
 import type { AppLayoutProps } from '@/types/layouts';
 
 function AppLayout({ children, ...props }: AppLayoutProps) {

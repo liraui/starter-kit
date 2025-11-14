@@ -1,5 +1,5 @@
-import { AppLayout } from '@/layouts/app-layout';
 import { Button } from '@/components/ui/button';
+import { AppLayout } from '@/layouts/app-layout';
 import { ArrowRightIcon, BookTextIcon } from 'lucide-react';
 
 export default function Welcome() {
