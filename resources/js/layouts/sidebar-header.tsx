@@ -12,7 +12,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { cn } from '@/lib/utils';
+import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
@@ -24,15 +24,13 @@ function SidebarHeader() {
         <header className="bg-sidebar sticky top-0 z-50 mx-auto h-12 w-full px-4">
             <div>
                 <div className="mx-auto flex h-12 items-center">
-                    <div>
-                        {/*  */}
-                    </div>
+                    <div>{/*  */}</div>
                     <div className="flex-1" />
                     <nav className="flex items-center gap-8">
                         <Link
                             href={showHome.url()}
                             className={cn('text-primary text-sm', {
-                                'text-primary font-medium': page.url === showHome.url(),
+                                'text-primary font-medium': isSameUrl(page.url, showHome.url()),
                             })}
                         >
                             Home
@@ -40,7 +38,7 @@ function SidebarHeader() {
                         <Link
                             href={showDashboard.url()}
                             className={cn('text-primary text-sm', {
-                                'text-primary font-medium': page.url === showDashboard.url(),
+                                'text-primary font-medium': isSameUrl(page.url, showDashboard.url()),
                             })}
                         >
                             Dashboard

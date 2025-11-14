@@ -13,8 +13,9 @@ function SidebarLayout({ children, ...props }: SidebarLayoutProps) {
             <SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
-                    <div className='top-12 sticky rounded-t-xl bg-muted dark:bg-[#0d0d0d] border-border/25 border-b'>
-                        <header className="mx-auto flex h-16 w-full max-w-7xl shrink-0 items-center gap-2">
+                    <div className="bg-sidebar fixed top-12 right-0 left-0 h-12 w-full"></div>
+                    <div className="bg-muted border-border/50 sticky top-12 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
+                        <div className="mx-auto flex h-16 w-full max-w-7xl shrink-0 items-center gap-2">
                             <SidebarTrigger className="-ml-1" />
                             <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
                             {props.breadcrumbs && props.breadcrumbs.length > 0 && (
@@ -40,9 +41,9 @@ function SidebarLayout({ children, ...props }: SidebarLayoutProps) {
                                     </BreadcrumbList>
                                 </Breadcrumb>
                             )}
-                        </header>
+                        </div>
                     </div>
-                    <div>{children}</div>
+                    <div className="rounded-b-xl px-8">{children}</div>
                 </SidebarInset>
             </SidebarProvider>
             <SidebarFooter />

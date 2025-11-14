@@ -1,5 +1,5 @@
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
-import { resolveUrl } from '@/lib/utils';
+import { isSameUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
@@ -24,7 +24,7 @@ export function AppSidebar() {
                     <SidebarMenu>
                         {mainNavItems.map((item) => (
                             <SidebarMenuItem key={item.title}>
-                                <SidebarMenuButton asChild isActive={page.url.startsWith(resolveUrl(item.href))} tooltip={{ children: item.title }}>
+                                <SidebarMenuButton asChild isActive={isSameUrl(page.url, item.href)} tooltip={{ children: item.title }}>
                                     <Link href={item.href} prefetch>
                                         {item.icon && <item.icon />}
                                         <span>{item.title}</span>

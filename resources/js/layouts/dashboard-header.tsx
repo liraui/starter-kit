@@ -13,7 +13,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Logo } from '@/components/ui/logo';
-import { cn } from '@/lib/utils';
+import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
@@ -33,7 +33,7 @@ function DashboardHeader() {
                             <Link
                                 href={showDashboard.url()}
                                 className={cn('text-primary', {
-                                    'text-primary font-medium': page.url === showDashboard.url(),
+                                    'text-primary font-medium': isSameUrl(page.url, showDashboard.url()),
                                 })}
                             >
                                 Dashboard

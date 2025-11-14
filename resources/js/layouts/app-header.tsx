@@ -12,7 +12,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Logo } from '@/components/ui/logo';
-import { cn } from '@/lib/utils';
+import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
@@ -31,7 +31,9 @@ function AppHeader() {
                         <div className="flex items-center gap-6">
                             <Link
                                 href={showHome.url()}
-                                className={cn(page.url === showHome.url() ? 'text-primary font-semibold' : 'text-muted-foreground')}
+                                className={cn('text-muted-foreground', {
+                                    'text-primary font-medium': isSameUrl(page.url, showHome.url()),
+                                })}
                             >
                                 Home
                             </Link>
