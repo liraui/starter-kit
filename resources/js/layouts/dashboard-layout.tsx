@@ -12,10 +12,10 @@ function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
         <div className="relative">
             <div className="bg-background">
                 <div>
-                    <div className='bg-background sticky top-0 z-999'>
+                    <div className='bg-background sticky top-0 z-9'>
                         <DashboardHeader />
                     </div>
-                    <div className="bg-muted border-border/50 sticky top-12 z-99 mx-2 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
+                    <div className="bg-muted border-border/50 sticky top-12 z-99 mx-2 rounded-t-xl border-b dark:bg-[#0d0d0d]">
                         <div className="mx-auto flex h-12 w-full max-w-7xl shrink-0 items-center gap-2 px-8">
                             <div className="mx-auto flex h-16 w-full max-w-7xl shrink-0 items-center gap-2">
                                 {breadcrumbs && breadcrumbs.length > 0 && (
@@ -23,7 +23,7 @@ function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
                                         <BreadcrumbList>
                                             {breadcrumbs.map((breadcrumb, index) => (
                                                 <div key={index} className="flex items-center gap-2">
-                                                    <BreadcrumbItem className={index === 0 ? 'hidden md:block' : ''}>
+                                                    <BreadcrumbItem>
                                                         {index === breadcrumbs.length - 1 ? (
                                                             <BreadcrumbPage>{breadcrumb.label}</BreadcrumbPage>
                                                         ) : (
@@ -35,7 +35,7 @@ function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
                                                             </BreadcrumbLink>
                                                         )}
                                                     </BreadcrumbItem>
-                                                    {index < breadcrumbs.length - 1 && <BreadcrumbSeparator className="hidden md:block" />}
+                                                    {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
                                                 </div>
                                             ))}
                                         </BreadcrumbList>
