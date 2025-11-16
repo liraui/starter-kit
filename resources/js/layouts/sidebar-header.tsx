@@ -12,10 +12,10 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Logo } from '@/components/ui/logo';
 import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { BlocksIcon, HomeIcon } from 'lucide-react';
 
 function SidebarHeader() {
     const { auth } = usePage<SharedData>().props;
@@ -26,8 +26,12 @@ function SidebarHeader() {
         <header className="bg-sidebar sticky top-0 z-50 mx-auto h-12 w-full px-4">
             <div>
                 <div className="mx-auto flex h-12 items-center">
-                    <div>{/*  */}</div>
-                    <div className="flex-1" />
+                    <div>
+                        <Link href={showHome.url()} className='text-primary bg-muted/50 rounded-xl p-1.5 block'>
+                            <Logo />
+                        </Link>
+                    </div>
+                    <div className="grow" />
                     <nav className="flex items-center gap-8">
                         <Link
                             href={showHome.url()}

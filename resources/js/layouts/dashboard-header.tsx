@@ -12,6 +12,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Logo } from '@/components/ui/logo';
 import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
@@ -27,6 +28,9 @@ function DashboardHeader() {
             <div>
                 <div className="mx-auto flex h-12 items-center">
                     <nav className="flex items-center gap-8">
+                        <Link href={showHome.url()} className='text-primary bg-muted/50 rounded-xl p-1.5 block'>
+                            <Logo />
+                        </Link>
                         <Link
                             href={showHome.url()}
                             className={cn('text-primary', {
