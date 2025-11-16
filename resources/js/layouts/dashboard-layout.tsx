@@ -1,16 +1,50 @@
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import { Separator } from '@/components/ui/separator';
 import { DashboardFooter } from '@/layouts/dashboard-footer';
 import { DashboardHeader } from '@/layouts/dashboard-header';
 import type { DashboardLayoutProps } from '@/types/layouts';
+import { BlocksIcon } from 'lucide-react';
 
-function DashboardLayout({ children, ...props }: DashboardLayoutProps) {
+function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
+    console.log(breadcrumbs);
+
     return (
         <div className="relative">
             <div className="bg-background">
-                <div {...props}>
-                    <div>
+                <div>
+                    <div className='bg-background sticky top-0 z-999'>
                         <DashboardHeader />
                     </div>
-                    <div className="bg-muted dark:bg-muted/10 m-2 rounded-md border">
+                    <div className="bg-muted border-border/50 sticky top-12 z-99 mx-2 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
+                        <div className="mx-auto flex h-12 w-full max-w-7xl shrink-0 items-center gap-2 px-8">
+                            <div className="mx-auto flex h-16 w-full max-w-7xl shrink-0 items-center gap-2">
+                                {breadcrumbs && breadcrumbs.length > 0 && (
+                                    <Breadcrumb>
+                                        <BreadcrumbList>
+                                            {breadcrumbs.map((breadcrumb, index) => (
+                                                <div key={index} className="flex items-center gap-2">
+                                                    <BreadcrumbItem className={index === 0 ? 'hidden md:block' : ''}>
+                                                        {index === breadcrumbs.length - 1 ? (
+                                                            <BreadcrumbPage>{breadcrumb.label}</BreadcrumbPage>
+                                                        ) : (
+                                                            <BreadcrumbLink
+                                                                href={breadcrumb.href}
+                                                                className={breadcrumb.href === '#' ? 'pointer-events-none hover:no-underline' : ''}
+                                                            >
+                                                                {breadcrumb.label}
+                                                            </BreadcrumbLink>
+                                                        )}
+                                                    </BreadcrumbItem>
+                                                    {index < breadcrumbs.length - 1 && <BreadcrumbSeparator className="hidden md:block" />}
+                                                </div>
+                                            ))}
+                                        </BreadcrumbList>
+                                    </Breadcrumb>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="bg-muted dark:bg-muted/10 mx-2 rounded-xl rounded-t-none">
                         <main className="mx-auto min-h-[calc(100svh-8rem)] max-w-7xl flex-col gap-8">{children}</main>
                     </div>
                     <div>

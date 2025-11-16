@@ -17,7 +17,6 @@ function DashboardFooter() {
                     <div className="flex-1" />
                     <nav className="flex items-center gap-8">
                         <Link href={showHome.url()}>Home</Link>
-                        <Link href={showDashboard.url()}>Dashboard</Link>
                         <AppearanceToggle />
                     </nav>
                 </div>

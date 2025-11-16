@@ -15,10 +15,12 @@ import {
 import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
+import { BlocksIcon, HomeIcon } from 'lucide-react';
 
 function SidebarHeader() {
-    const page = usePage<SharedData>();
     const { auth } = usePage<SharedData>().props;
+
+    const page = usePage<SharedData>();
 
     return (
         <header className="bg-sidebar sticky top-0 z-50 mx-auto h-12 w-full px-4">
@@ -29,7 +31,7 @@ function SidebarHeader() {
                     <nav className="flex items-center gap-8">
                         <Link
                             href={showHome.url()}
-                            className={cn('text-primary text-sm', {
+                            className={cn('text-primary', {
                                 'text-primary font-medium': isSameUrl(page.url, showHome.url()),
                             })}
                         >
@@ -37,7 +39,7 @@ function SidebarHeader() {
                         </Link>
                         <Link
                             href={showDashboard.url()}
-                            className={cn('text-primary text-sm', {
+                            className={cn('text-primary', {
                                 'text-primary font-medium': isSameUrl(page.url, showDashboard.url()),
                             })}
                         >

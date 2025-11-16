@@ -6,7 +6,7 @@ import { SidebarFooter } from '@/layouts/sidebar-footer';
 import { SidebarHeader } from '@/layouts/sidebar-header';
 import type { SidebarLayoutProps } from '@/types/layouts';
 
-function SidebarLayout({ children, ...props }: SidebarLayoutProps) {
+function SidebarLayout({ children, breadcrumbs }: SidebarLayoutProps) {
     return (
         <div className="bg-background relative w-full">
             <SidebarHeader />
@@ -18,13 +18,13 @@ function SidebarLayout({ children, ...props }: SidebarLayoutProps) {
                         <div className="mx-auto flex h-16 w-full max-w-7xl shrink-0 items-center gap-2">
                             <SidebarTrigger className="-ml-1" />
                             <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
-                            {props.breadcrumbs && props.breadcrumbs.length > 0 && (
+                            {breadcrumbs && breadcrumbs.length > 0 && (
                                 <Breadcrumb>
                                     <BreadcrumbList>
-                                        {props.breadcrumbs.map((breadcrumb, index) => (
+                                        {breadcrumbs.map((breadcrumb, index) => (
                                             <div key={index} className="flex items-center gap-2">
                                                 <BreadcrumbItem className={index === 0 ? 'hidden md:block' : ''}>
-                                                    {index === props.breadcrumbs.length - 1 ? (
+                                                    {index === breadcrumbs.length - 1 ? (
                                                         <BreadcrumbPage>{breadcrumb.label}</BreadcrumbPage>
                                                     ) : (
                                                         <BreadcrumbLink
@@ -35,7 +35,7 @@ function SidebarLayout({ children, ...props }: SidebarLayoutProps) {
                                                         </BreadcrumbLink>
                                                     )}
                                                 </BreadcrumbItem>
-                                                {index < props.breadcrumbs.length - 1 && <BreadcrumbSeparator className="hidden md:block" />}
+                                                {index < breadcrumbs.length - 1 && <BreadcrumbSeparator className="hidden md:block" />}
                                             </div>
                                         ))}
                                     </BreadcrumbList>
@@ -43,7 +43,7 @@ function SidebarLayout({ children, ...props }: SidebarLayoutProps) {
                             )}
                         </div>
                     </div>
-                    <div className="rounded-b-xl px-8">{children}</div>
+                    <div className="rounded-b-xl">{children}</div>
                 </SidebarInset>
             </SidebarProvider>
             <SidebarFooter />

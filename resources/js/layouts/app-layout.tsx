@@ -2,11 +2,11 @@ import { AppFooter } from '@/layouts/app-footer';
 import { AppHeader } from '@/layouts/app-header';
 import type { AppLayoutProps } from '@/types/layouts';
 
-function AppLayout({ children, ...props }: AppLayoutProps) {
+function AppLayout({ children }: AppLayoutProps) {
     return (
         <div className="relative">
             <div className="bg-background">
-                <div {...props}>
+                <div>
                     <div className="bg-background/80 border-border sticky top-0 z-99 backdrop-blur-md">
                         <AppHeader />
                         <div className="via-border absolute right-0 bottom-0 left-0 h-px bg-linear-to-r from-transparent to-transparent"></div>

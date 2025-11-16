@@ -12,34 +12,38 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Logo } from '@/components/ui/logo';
 import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
+import { BlocksIcon, HomeIcon } from 'lucide-react';
 
 function DashboardHeader() {
-    const page = usePage<SharedData>();
     const { auth } = usePage<SharedData>().props;
 
+    const page = usePage<SharedData>();
+
     return (
-        <header className="mx-auto w-full max-w-7xl">
-            <div className="bg-background/90 backdrop-blur-2xl">
+        <header className="relative mx-auto w-full max-w-7xl px-8">
+            <div>
                 <div className="mx-auto flex h-12 items-center">
-                    <div className="flex items-center gap-16">
-                        <Link href={showHome.url()} className="flex items-center">
-                            <Logo variant="primary" />
+                    <nav className="flex items-center gap-8">
+                        <Link
+                            href={showHome.url()}
+                            className={cn('text-primary', {
+                                'text-primary font-medium': isSameUrl(page.url, showHome.url()),
+                            })}
+                        >
+                            Home
                         </Link>
-                        <div className="flex items-center gap-8">
-                            <Link
-                                href={showDashboard.url()}
-                                className={cn('text-primary', {
-                                    'text-primary font-medium': isSameUrl(page.url, showDashboard.url()),
-                                })}
-                            >
-                                Dashboard
-                            </Link>
-                        </div>
-                    </div>
+                        <Link
+                            href={showDashboard.url()}
+                            className={cn('text-primary', {
+                                'text-primary font-medium': isSameUrl(page.url, showDashboard.url()),
+                            })}
+                        >
+                            Dashboard
+                        </Link>
+                    </nav>
                     <div className="flex-1" />
                     <nav className="flex items-center gap-8">
                         <DropdownMenu>

@@ -17,6 +17,9 @@ export interface NavItem {
 export interface SharedData {
     name: string;
     auth: Auth;
+    dashboard: {
+        shell: 'default' | 'sidebar';
+    };
     [key: string]: unknown;
 }
 
