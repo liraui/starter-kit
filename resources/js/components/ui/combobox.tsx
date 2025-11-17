@@ -1,31 +1,79 @@
 'use client';
 
 import { Check, ChevronsUpDown } from 'lucide-react';
-import * as React from 'react';
 
-import { Button } from '@/components/ui/button';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
+import { useState } from 'react';
+import { Input } from './input';
 
-function Combobox({ data, name }: { data?: any[]; name: string }) {
-    const [open, setOpen] = React.useState(false);
-    const [value, setValue] = React.useState('');
+interface ComboboxProps {
+    data?: any[];
+    name: string;
+    placeholder?: string;
+    'aria-invalid'?: boolean;
+    'aria-describedby'?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+}
+
+function Combobox({
+    data,
+    name,
+    placeholder,
+    'aria-invalid': ariaInvalid,
+    'aria-describedby': ariaDescribedBy,
+    defaultValue,
+    onValueChange,
+}: ComboboxProps) {
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(defaultValue || '');
+
+    const formatLabel = (label: string) => {
+        const match = label.match(/^(.+?)\s*\((.+)\)$/);
+        if (match) {
+            return (
+                <>
+                    {match[1]} <span className="text-muted-foreground mr-auto text-sm">{match[2]}</span>
+                </>
+            );
+        }
+        return label;
+    };
 
     return (
         <>
             <input type="hidden" name={name} value={value} />
             <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
-                    <Button variant="outline" role="combobox" aria-expanded={open} className="justify-between">
-                        {value ? data?.find((item) => item.value === value)?.label : 'Choose a ...'}
-                        <ChevronsUpDown className="opacity-50" />
-                    </Button>
+                    <div className="relative">
+                        <Input
+                            type="text"
+                            role="combobox"
+                            aria-invalid={!!ariaInvalid}
+                            aria-describedby={ariaDescribedBy}
+                            className="cursor-pointer"
+                            placeholder={placeholder || 'Select an item...'}
+                            value={value ? data?.find((item) => item.value === value)?.label || '' : ''}
+                            onClick={() => setOpen(!open)}
+                            readOnly
+                        />
+                        <ChevronsUpDown className="absolute top-1/2 right-2 h-4 w-4 -translate-y-1/2 opacity-50" />
+                    </div>
                 </PopoverTrigger>
-                <PopoverContent className="w-(--radix-popover-trigger-width) p-0">
+                <PopoverContent
+                    className="z-999 w-(--radix-popover-trigger-width) p-0"
+                    onWheel={(e) => {
+                        e.stopPropagation();
+                    }}
+                    onTouchMove={(e) => {
+                        e.stopPropagation();
+                    }}
+                >
                     <Command>
                         <CommandInput placeholder="Search..." className="h-9" />
-                        <CommandList>
+                        <CommandList className="max-h-[200px] overflow-y-auto">
                             <CommandEmpty>No item found.</CommandEmpty>
                             <CommandGroup>
                                 {data?.map((item) => (
@@ -35,9 +83,12 @@ function Combobox({ data, name }: { data?: any[]; name: string }) {
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? '' : currentValue);
                                             setOpen(false);
+                                            if (onValueChange) {
+                                                onValueChange(currentValue === value ? '' : currentValue);
+                                            }
                                         }}
                                     >
-                                        {item.label}
+                                        {formatLabel(item.label)}
                                         <Check className={cn('ml-auto', value === item.value ? 'opacity-100' : 'opacity-0')} />
                                     </CommandItem>
                                 ))}
