@@ -14,7 +14,7 @@ function SidebarLayout({ children, breadcrumbs }: SidebarLayoutProps) {
                 <AppSidebar />
                 <SidebarInset>
                     <div className="bg-sidebar fixed top-12 right-0 left-0 h-12 w-full"></div>
-                    <div className="bg-muted border-border/50 sticky top-12 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
+                    <div className="bg-muted border-border/50 sticky top-12 z-999 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
                         <div className="flex h-16 w-full shrink-0 items-center gap-2">
                             <SidebarTrigger className="-ml-1" />
                             <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
