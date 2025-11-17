@@ -1,15 +1,36 @@
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
+import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
+import { showProfile } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { isSameUrl } from '@/lib/utils';
-import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { LayoutGrid } from 'lucide-react';
+import { BookIcon, GitForkIcon, LayoutGridIcon, SettingsIcon } from 'lucide-react';
 
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
-        href: dashboard(),
-        icon: LayoutGrid,
+        href: showDashboard.url(),
+        icon: LayoutGridIcon,
+    },
+];
+const externalNavItems: NavItem[] = [
+    {
+        title: 'Repository',
+        href: 'https://github.com/liraui/starter-kit',
+        icon: GitForkIcon,
+    },
+    {
+        title: 'Documentation',
+        href: 'https://liraui.com/docs',
+        icon: BookIcon,
+    },
+];
+
+const settingsNavItems: NavItem[] = [
+    {
+        title: 'Settings',
+        href: showProfile.url(),
+        icon: SettingsIcon,
     },
 ];
 
@@ -35,6 +56,33 @@ export function AppSidebar() {
                     </SidebarMenu>
                 </SidebarGroup>
             </SidebarContent>
+            <SidebarFooter>
+                <SidebarMenu>
+                    {externalNavItems.map((item) => (
+                        <SidebarMenuItem key={item.title}>
+                            <SidebarMenuButton asChild isActive={isSameUrl(page.url, item.href)} tooltip={{ children: item.title }}>
+                                <Link href={item.href} prefetch>
+                                    {item.icon && <item.icon />}
+                                    <span>{item.title}</span>
+                                </Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    ))}
+                </SidebarMenu>
+                <SidebarGroupLabel>My account</SidebarGroupLabel>
+                <SidebarMenu>
+                    {settingsNavItems.map((item) => (
+                        <SidebarMenuItem key={item.title}>
+                            <SidebarMenuButton asChild isActive={isSameUrl(page.url, item.href)} tooltip={{ children: item.title }}>
+                                <Link href={item.href} prefetch>
+                                    {item.icon && <item.icon />}
+                                    <span>{item.title}</span>
+                                </Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    ))}
+                </SidebarMenu>
+            </SidebarFooter>
         </Sidebar>
     );
 }

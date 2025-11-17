@@ -11,11 +11,8 @@ function ProfileNavigation() {
         <SubHeader title="Profile">
             <Link
                 href={showProfile.url()}
-                className={cn({
-                    'bg-background text-primary border-border flex items-center gap-2 rounded-md border p-1 px-2 font-medium': isSameUrl(
-                        page.url,
-                        showProfile.url(),
-                    ),
+                className={cn('flex items-center gap-2 rounded-md px-2 py-1', {
+                    'bg-background text-primary border font-medium': isSameUrl(page.url, showProfile.url()),
                 })}
             >
                 <SettingsIcon size={14} /> Settings

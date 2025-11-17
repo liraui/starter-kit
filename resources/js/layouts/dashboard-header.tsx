@@ -49,6 +49,18 @@ function DashboardHeader() {
                     </nav>
                     <div className="flex-1" />
                     <nav className="flex items-center gap-8">
+                        <Link
+                            href={'https://github.com/liraui/starter-kit'}
+                            className={cn('text-primary')}
+                        >
+                            Repository
+                        </Link>
+                        <Link
+                            href={'https://liraui.com/docs'}
+                            className={cn('text-primary')}
+                        >
+                            Documentation
+                        </Link>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="ghost" className="h-10 w-10 rounded-full p-1">

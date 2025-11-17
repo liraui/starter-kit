@@ -20,8 +20,6 @@ import { Link, usePage } from '@inertiajs/react';
 function SidebarHeader() {
     const { auth } = usePage<SharedData>().props;
 
-    const page = usePage<SharedData>();
-
     return (
         <header className="bg-sidebar sticky top-0 z-50 mx-auto h-12 w-full px-4">
             <div>
@@ -33,22 +31,6 @@ function SidebarHeader() {
                     </div>
                     <div className="grow" />
                     <nav className="flex items-center gap-8">
-                        <Link
-                            href={showHome.url()}
-                            className={cn('text-primary', {
-                                'text-primary font-medium': isSameUrl(page.url, showHome.url()),
-                            })}
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            href={showDashboard.url()}
-                            className={cn('text-primary', {
-                                'text-primary font-medium': isSameUrl(page.url, showDashboard.url()),
-                            })}
-                        >
-                            Dashboard
-                        </Link>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="ghost" className="h-10 w-10 rounded-full p-1">

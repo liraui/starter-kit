@@ -122,7 +122,7 @@ function SidebarProvider({
                             ...style,
                         } as React.CSSProperties
                     }
-                    className={cn('group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full', className)}
+                    className={cn('group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-[calc(100svh-6rem)] w-full', className)}
                     {...props}
                 >
                     {children}
@@ -194,17 +194,7 @@ function Sidebar({
         >
             <div
                 className={cn(
-                    'relative h-svh w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear',
-                    'group-data-[collapsible=offcanvas]:w-0',
-                    'group-data-[side=right]:rotate-180',
-                    variant === 'floating' || variant === 'inset'
-                        ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]'
-                        : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon)',
-                )}
-            />
-            <div
-                className={cn(
-                    'fixed top-12 bottom-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
+                    'sticky top-12 z-10 h-[calc(100svh-6rem)] hidden w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
                     side === 'left'
                         ? 'left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]'
                         : 'right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
@@ -278,8 +268,8 @@ function SidebarInset({ className, ...props }: React.ComponentProps<'main'>) {
         <main
             data-slot="sidebar-inset"
             className={cn(
-                'bg-muted dark:bg-muted/10 relative flex min-h-svh max-w-full flex-1 flex-col',
-                'peer-data-[variant=inset]:min-h-[calc(100svh-(--spacing(4)))] md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-none md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-0',
+                'bg-muted dark:bg-muted/10 relative flex max-w-full flex-1 flex-col',
+                'md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-none md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-0',
                 className,
             )}
             {...props}
