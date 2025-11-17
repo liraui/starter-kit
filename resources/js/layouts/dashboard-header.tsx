@@ -16,7 +16,6 @@ import { Logo } from '@/components/ui/logo';
 import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { BlocksIcon, HomeIcon } from 'lucide-react';
 
 function DashboardHeader() {
     const { auth } = usePage<SharedData>().props;
@@ -28,7 +27,7 @@ function DashboardHeader() {
             <div>
                 <div className="mx-auto flex h-12 items-center">
                     <nav className="flex items-center gap-8">
-                        <Link href={showHome.url()} className='text-primary bg-muted/50 rounded-xl p-1.5 block'>
+                        <Link href={showHome.url()} className="text-primary bg-muted/50 block rounded-xl p-1.5">
                             <Logo />
                         </Link>
                         <Link

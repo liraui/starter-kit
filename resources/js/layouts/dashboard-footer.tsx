@@ -1,4 +1,3 @@
-import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
 import { showHome } from '@/actions/App/Http/Controllers/HomeController';
 import { AppearanceToggle } from '@/components/appearance-toggle';
 import { Logo } from '@/components/ui/logo';

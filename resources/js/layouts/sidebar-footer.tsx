@@ -1,6 +1,5 @@
 import { showHome } from '@/actions/App/Http/Controllers/HomeController';
 import { AppearanceToggle } from '@/components/appearance-toggle';
-import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
 
 function SidebarFooter() {

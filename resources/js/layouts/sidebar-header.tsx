@@ -27,7 +27,7 @@ function SidebarHeader() {
             <div>
                 <div className="mx-auto flex h-12 items-center">
                     <div>
-                        <Link href={showHome.url()} className='text-primary bg-muted/50 rounded-xl p-1.5 block'>
+                        <Link href={showHome.url()} className="text-primary bg-muted/50 block rounded-xl p-1.5">
                             <Logo />
                         </Link>
                     </div>

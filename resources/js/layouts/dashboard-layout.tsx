@@ -1,9 +1,7 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { Separator } from '@/components/ui/separator';
 import { DashboardFooter } from '@/layouts/dashboard-footer';
 import { DashboardHeader } from '@/layouts/dashboard-header';
 import type { DashboardLayoutProps } from '@/types/layouts';
-import { BlocksIcon } from 'lucide-react';
 
 function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
     console.log(breadcrumbs);
@@ -12,7 +10,7 @@ function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
         <div className="relative">
             <div className="bg-background">
                 <div>
-                    <div className='bg-background sticky top-0 z-9'>
+                    <div className="bg-background sticky top-0 z-9">
                         <DashboardHeader />
                     </div>
                     <div className="bg-muted border-border/50 sticky top-12 z-99 mx-2 rounded-t-xl border-b dark:bg-[#0d0d0d]">
