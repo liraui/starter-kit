@@ -4,8 +4,6 @@ import { DashboardHeader } from '@/layouts/dashboard-header';
 import type { DashboardLayoutProps } from '@/types/layouts';
 
 function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
-    console.log(breadcrumbs);
-
     return (
         <div className="relative">
             <div className="bg-background">
