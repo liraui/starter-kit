@@ -9,7 +9,7 @@ import { createRoot } from 'react-dom/client';
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 const packagePages = {
-    ...import.meta.glob('@auth/pages/**/*.tsx'),
+    ...import.meta.glob('@auth/pages/!(*docs*)/**/*.tsx'),
 };
 
 createInertiaApp({

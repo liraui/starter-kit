@@ -41,7 +41,7 @@ function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
                         </div>
                     </div>
                     <div className="bg-muted dark:bg-muted/10 mx-2 rounded-xl rounded-t-none">
-                        <main className="mx-auto min-h-[calc(100svh-8rem)] max-w-7xl flex-col gap-8">{children}</main>
+                        <main className="mx-auto min-h-[calc(100svh-10rem)] max-w-7xl flex-col gap-8">{children}</main>
                     </div>
                     <div>
                         <DashboardFooter />

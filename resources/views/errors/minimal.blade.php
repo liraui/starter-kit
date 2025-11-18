@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>@yield('title')</title>
 
-        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            (function() {
+                const appearance = document.cookie.split('; ').find(row => row.startsWith('appearance='))?.split('=')[1] ?? 'system';
+
+                if (appearance === 'system') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+                    if (prefersDark) {
+                        document.documentElement.classList.add('dark');
+                    }
+                } else {
+                    document.documentElement.classList.toggle('dark', appearance === 'dark');
+                }
+            })();
+        </script>
+
+        @vite(['resources/css/app.css'])
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-[#0a0a0a] sm:items-center sm:pt-0" role="main">

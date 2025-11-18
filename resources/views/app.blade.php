@@ -1,10 +1,20 @@
+@php
+    $component = $page['component'];
+    [$namespace, $namespaceFilename] = str_contains($component, '::') ? explode('::', $component) : [null, $component];
+
+    if ($namespace) {
+        [$vendorName, $vendorPackageName] = explode('-', $namespace);
+        $componentPath = "vendor/{$vendorName}/{$vendorPackageName}/resources/js/pages/{$namespaceFilename}.tsx";
+    } else {
+        $componentPath = "resources/js/pages/{$component}.tsx";
+    }
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {{-- Inline script to detect system dark mode preference and apply it immediately --}}
         <script>
             (function() {
                 const appearance = '{{ $appearance ?? "system" }}';
@@ -28,7 +38,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fira+Code:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
 
         @viteReactRefresh
-        @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+        @vite(['resources/js/app.tsx', $componentPath ])
         @inertiaHead
     </head>
     <body class="font-sans antialiased">

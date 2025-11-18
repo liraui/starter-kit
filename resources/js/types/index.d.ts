@@ -17,6 +17,10 @@ export interface NavItem {
 export interface SharedData {
     name: string;
     auth: Auth;
+    flash: {
+        type: 'success' | 'error' | 'info' | null;
+        message: string;
+    }
     dashboard: {
         shell: 'default' | 'sidebar';
     };
