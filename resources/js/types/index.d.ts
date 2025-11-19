@@ -18,7 +18,7 @@ export interface SharedData {
     name: string;
     auth: Auth;
     flash: {
-        type: 'success' | 'error' | 'info' | null;
+        type: 'success' | 'error' | 'warning' | 'info';
         message: string;
     }
     dashboard: {
