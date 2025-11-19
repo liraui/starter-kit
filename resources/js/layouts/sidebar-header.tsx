@@ -1,4 +1,3 @@
-import { showDashboard } from '@/actions/App/Http/Controllers/DashboardController';
 import { showHome } from '@/actions/App/Http/Controllers/HomeController';
 import { logout } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
 import { showProfile } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
@@ -13,7 +12,6 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Logo } from '@/components/ui/logo';
-import { cn, isSameUrl } from '@/lib/utils';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 

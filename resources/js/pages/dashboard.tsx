@@ -15,7 +15,7 @@ export default function Dashboard() {
                     <EmptyTitle>You're all caught up</EmptyTitle>
                     <EmptyDescription>Need help getting started? Check out our documentation to learn more about Lira.</EmptyDescription>
                 </EmptyHeader>
-                <span className='text-sm'>
+                <span className="text-sm">
                     Go to
                     <Button variant="link" asChild className="text-muted-foreground" size="sm">
                         <span>

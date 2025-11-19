@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 export function DashboardShell({ children, breadcrumbs }: DashboardShellProps) {
     const variant = usePage<SharedData>().props.dashboard.shell || 'default';
 
-    const {flash} = usePage<SharedData>().props;
+    const { flash } = usePage<SharedData>().props;
 
     if (flash && flash.type === 'success' && flash.message) {
         toast.success(flash.message, {

@@ -1,17 +1,5 @@
 import { showHome } from '@/actions/App/Http/Controllers/HomeController';
-import { logout } from '@/actions/LiraUi/Auth/Http/Controllers/AuthController';
-import { showProfile } from '@/actions/LiraUi/Auth/Http/Controllers/ProfileController';
 import { AppearanceToggle } from '@/components/appearance-toggle';
-import { Button } from '@/components/ui/button';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import type { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 

@@ -20,7 +20,7 @@ export interface SharedData {
     flash: {
         type: 'success' | 'error' | 'warning' | 'info';
         message: string;
-    }
+    };
     dashboard: {
         shell: 'default' | 'sidebar';
     };
