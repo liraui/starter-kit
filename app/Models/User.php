@@ -40,6 +40,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * The attributes that should be appended.
+     *
+     * @var list<string>
+     */
+    protected $appends = [
+        'name',
+        'avatar',
+    ];
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -51,16 +61,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
-    protected $appends = [
-        'name',
-        'avatar',
-    ];
 
     /**
      * Get the user's name attribute.
