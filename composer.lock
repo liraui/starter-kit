@@ -2525,12 +2525,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:liraui/auth.git",
-                "reference": "887357c9c0aa13700059e3e796957e2e2aa0b09e"
+                "reference": "e2c4517b1b85df61e052e306f42bd8db60cb4ce6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liraui/auth/zipball/887357c9c0aa13700059e3e796957e2e2aa0b09e",
-                "reference": "887357c9c0aa13700059e3e796957e2e2aa0b09e",
+                "url": "https://api.github.com/repos/liraui/auth/zipball/e2c4517b1b85df61e052e306f42bd8db60cb4ce6",
+                "reference": "e2c4517b1b85df61e052e306f42bd8db60cb4ce6",
                 "shasum": ""
             },
             "require": {
@@ -2608,7 +2608,7 @@
                 "source": "https://github.com/liraui/auth/tree/main",
                 "issues": "https://github.com/liraui/auth/issues"
             },
-            "time": "2025-11-16T01:23:35+00:00"
+            "time": "2025-11-19T23:50:15+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
