@@ -63,7 +63,7 @@ function Combobox({
                     </div>
                 </PopoverTrigger>
                 <PopoverContent
-                    className="z-999 w-(--radix-popover-trigger-width) p-0"
+                    className="z-9999 w-(--radix-popover-trigger-width) p-0"
                     onWheel={(e) => {
                         e.stopPropagation();
                     }}
