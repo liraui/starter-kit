@@ -17,13 +17,10 @@ export default function Dashboard() {
                 </EmptyHeader>
                 <span className="text-sm">
                     Go to
-                    <Button variant="link" asChild className="text-muted-foreground" size="sm">
-                        <span>
-                            <a href="https://liraui.com" className="text-primary">
-                                liraui.com
-                            </a>
-                            <ArrowUpRightIcon />
-                        </span>
+                    <Button asChild variant="link" className="text-muted-foreground" size="sm">
+                        <a href="https://liraui.com" className="text-primary">
+                            liraui.com <ArrowUpRightIcon />
+                        </a>
                     </Button>
                 </span>
             </Empty>

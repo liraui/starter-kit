@@ -72,10 +72,10 @@ function AppHeader() {
                         )}
                         {!page.props.auth.user && (
                             <div className="flex gap-4">
-                                <Button className="font-semibold" variant={'ghost'} size={'sm'}>
+                                <Button asChild className="font-semibold" variant={'ghost'} size={'sm'}>
                                     <Link href={showLoginForm.url()}>Log in</Link>
                                 </Button>
-                                <Button className="font-semibold" size={'sm'}>
+                                <Button asChild className="font-semibold" size={'sm'}>
                                     <Link href={showRegistrationForm.url()}>Register</Link>
                                 </Button>
                             </div>
