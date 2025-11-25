@@ -24,13 +24,13 @@ export default function Welcome() {
                     <BookTextIcon size={16} className="mr-2 inline-block" />
                     Docs package
                 </span>
-                <div className="outline-border bg-muted mb-4 rounded-t-xl border p-1 outline outline-offset-6">
+                <div className="outline-border bg-muted mb-4 rounded-t-xl border p-1 outline outline-offset-4">
                     <div className="bg-background relative aspect-video overflow-hidden rounded-t-xl">
                         <img src="/images/light/full-docs.png" className="block dark:hidden" alt="Docs package" />
                         <img src="/images/dark/full-docs.png" className="hidden dark:block" alt="Docs package" />
-                        <div className="absolute inset-0 top-32 z-20 flex items-start justify-center sm:top-40 xl:top-56 2xl:top-72">
-                            <div className="rounded-full bg-linear-to-br from-transparent from-10% to-yellow-500 p-0.5">
-                                <Button asChild size={'lg'} className="rounded-full shadow-xl">
+                        <div className="absolute w-full h-full top-0 flex items-center justify-center">
+                            <div className="rounded-full bg-linear-to-br from-transparent from-10% to-yellow-900 p-0.5">
+                                <Button asChild size='lg' className="rounded-full shadow-xl">
                                     <a href="https://github.com/liraui/docs">
                                         <BlocksIcon /> View package <ArrowUpRightIcon />
                                     </a>
