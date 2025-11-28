@@ -13,34 +13,35 @@ function SidebarLayout({ children, breadcrumbs }: SidebarLayoutProps) {
             <SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
-                    <div className="bg-sidebar fixed top-12 right-0 left-0 h-12 w-full"></div>
-                    <div className="bg-muted border-border/50 sticky top-12 z-9 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
-                        <div className="flex h-16 w-full shrink-0 items-center gap-2">
-                            <SidebarTrigger className="-ml-1" />
-                            <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
-                            {breadcrumbs && breadcrumbs.length > 0 && (
-                                <Breadcrumb>
-                                    <BreadcrumbList>
-                                        {breadcrumbs.map((breadcrumb, index) => (
-                                            <div key={index} className="flex items-center gap-2">
-                                                <BreadcrumbItem className={index === 0 ? 'hidden md:block' : ''}>
-                                                    {index === breadcrumbs.length - 1 ? (
-                                                        <BreadcrumbPage>{breadcrumb.label}</BreadcrumbPage>
-                                                    ) : (
-                                                        <BreadcrumbLink
-                                                            href={breadcrumb.href}
-                                                            className={breadcrumb.href === '#' ? 'pointer-events-none hover:no-underline' : ''}
-                                                        >
-                                                            {breadcrumb.label}
-                                                        </BreadcrumbLink>
-                                                    )}
-                                                </BreadcrumbItem>
-                                                {index < breadcrumbs.length - 1 && <BreadcrumbSeparator className="hidden md:block" />}
-                                            </div>
-                                        ))}
-                                    </BreadcrumbList>
-                                </Breadcrumb>
-                            )}
+                    <div className='bg-sidebar sticky top-12'>
+                        <div className="bg-muted border-border/50 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
+                            <div className="flex h-16 w-full shrink-0 items-center gap-2">
+                                <SidebarTrigger className="-ml-1" />
+                                <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
+                                {breadcrumbs && breadcrumbs.length > 0 && (
+                                    <Breadcrumb>
+                                        <BreadcrumbList>
+                                            {breadcrumbs.map((breadcrumb, index) => (
+                                                <div key={index} className="flex items-center gap-2">
+                                                    <BreadcrumbItem className={index === 0 ? 'hidden md:block' : ''}>
+                                                        {index === breadcrumbs.length - 1 ? (
+                                                            <BreadcrumbPage>{breadcrumb.label}</BreadcrumbPage>
+                                                        ) : (
+                                                            <BreadcrumbLink
+                                                                href={breadcrumb.href}
+                                                                className={breadcrumb.href === '#' ? 'pointer-events-none hover:no-underline' : ''}
+                                                            >
+                                                                {breadcrumb.label}
+                                                            </BreadcrumbLink>
+                                                        )}
+                                                    </BreadcrumbItem>
+                                                    {index < breadcrumbs.length - 1 && <BreadcrumbSeparator className="hidden md:block" />}
+                                                </div>
+                                            ))}
+                                        </BreadcrumbList>
+                                    </Breadcrumb>
+                                )}
+                            </div>
                         </div>
                     </div>
                     <div className="rounded-b-xl">{children}</div>

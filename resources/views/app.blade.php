@@ -41,7 +41,10 @@
         @vite(['resources/js/app.tsx', $componentPath ])
         @inertiaHead
     </head>
-    <body class="font-sans antialiased">
+    <body @class([
+        'font-sans antialiased',
+        'bg-sidebar' => $page['props']['dashboard']['shell'] === 'sidebar',
+    ])>
         @inertia
     </body>
 </html>
