@@ -6,7 +6,7 @@ export default function Welcome() {
     return (
         <div className="relative mt-32 flex flex-col gap-16">
             <div className="mx-auto flex flex-col gap-8 text-center">
-                <h1 className="text-primary mx-auto max-w-xl text-center text-5xl font-extrabold">A kit for your modern Laravel applications</h1>
+                <h1 className="text-primary mx-auto max-w-xl text-center text-6xl font-light">A kit for your modern Laravel applications</h1>
                 <p className="text-muted-foreground max-w-3xl text-2xl">A simple start to building your next Laravel + React application</p>
                 <div className="mx-auto flex gap-2">
                     <Button asChild>
