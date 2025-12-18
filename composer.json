@@ -8,16 +8,13 @@
         "framework"
     ],
     "license": "MIT",
-    "repositories": [
-        { "type": "vcs", "url": "https://github.com/liraui/auth" }
-    ],
     "require": {
         "php": "^8.2",
         "inertiajs/inertia-laravel": "^2.0.10",
         "laravel/framework": "^12.38.1",
         "laravel/tinker": "^2.10.1",
         "laravel/wayfinder": "^0.1.12",
-        "liraui/auth": "@dev",
+        "liraui/auth": "^1.0",
         "spatie/laravel-route-attributes": "^1.25.2"
     },
     "require-dev": {
