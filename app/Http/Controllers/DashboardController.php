@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use Inertia\Response as InertiaResponse;
 use Spatie\RouteAttributes\Attributes\Get;
 
 class DashboardController extends Controller
@@ -15,7 +16,7 @@ class DashboardController extends Controller
             'auth',
         ]
     )]
-    public function showDashboard()
+    public function showDashboard(): InertiaResponse
     {
         return Inertia::render('dashboard');
     }

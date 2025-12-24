@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use Inertia\Response as InertiaResponse;
 use Spatie\RouteAttributes\Attributes\Get;
 
 class HomeController extends Controller
@@ -14,7 +15,7 @@ class HomeController extends Controller
             'web',
         ]
     )]
-    public function showHome()
+    public function showHome(): InertiaResponse
     {
         return Inertia::render('welcome');
     }
