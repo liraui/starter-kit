@@ -1,6 +1,9 @@
 <?php
 
+use App\Providers\AppServiceProvider;
+use LiraUi\Auth\RouteServiceProvider;
+
 return [
-    App\Providers\AppServiceProvider::class,
-    LiraUi\Auth\RouteServiceProvider::class,
+    AppServiceProvider::class,
+    RouteServiceProvider::class,
 ];
