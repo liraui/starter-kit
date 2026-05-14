@@ -125,6 +125,10 @@ return [
     |
     */
 
-    'serializable_classes' => false,
+    'serializable_classes' => [
+        App\Models\User::class,
+        Carbon\Carbon::class,
+        LiraUi\Auth\Otacs\UserEmailUpdatedOtac::class,
+    ],
 
 ];
