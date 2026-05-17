@@ -1,6 +1,4 @@
-import { showHome } from '@/actions/App/Http/Controllers/HomeController';
 import type { SubHeaderProps } from '@/types/layouts';
-import { Link } from '@inertiajs/react';
 
 function SubHeader({ title, children }: SubHeaderProps) {
     return (

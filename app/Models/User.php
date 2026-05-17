@@ -9,7 +9,9 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notifiable as HasNotifications;
+use Laravel\Passkeys\Contracts\PasskeyUser;
+use Laravel\Passkeys\PasskeyAuthenticatable as HasPasskeyAuthenticatable;
 use Laravolt\Avatar\Avatar;
 use LiraUi\Auth\Concerns\HasEmailVerification;
 
@@ -23,12 +25,13 @@ use LiraUi\Auth\Concerns\HasEmailVerification;
  * @property string|null $two_factor_recovery_codes
  * @property Carbon|null $two_factor_confirmed_at
  */
-class User extends Authenticatable
+class User extends Authenticatable implements PasskeyUser
 {
     /** @use HasFactory<UserFactory> */
     use HasEmailVerification,
         HasFactory,
-        Notifiable;
+        HasNotifications,
+        HasPasskeyAuthenticatable;
 
     /**
      * The attributes that are mass assignable.

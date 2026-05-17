@@ -11,9 +11,9 @@ function DashboardLayout({ children, breadcrumbs }: DashboardLayoutProps) {
                     <div className="bg-background sticky top-0 z-9">
                         <DashboardHeader />
                     </div>
-                    <div className='bg-background sticky top-12 mx-2 z-50'>
+                    <div className="bg-background sticky top-12 z-50 mx-2">
                         <div className="bg-muted border-border/50 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
-                            <div className="max-w-7xl px-8 mx-auto flex h-16 w-full shrink-0 items-center gap-2">
+                            <div className="mx-auto flex h-16 w-full max-w-7xl shrink-0 items-center gap-2 px-8">
                                 {breadcrumbs && breadcrumbs.length > 0 && (
                                     <Breadcrumb>
                                         <BreadcrumbList>

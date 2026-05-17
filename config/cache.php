@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Str;
+use LiraUi\Auth\Otacs\UserEmailUpdatedOtac;
 
 return [
 
@@ -126,9 +128,9 @@ return [
     */
 
     'serializable_classes' => [
-        App\Models\User::class,
+        User::class,
         Carbon\Carbon::class,
-        LiraUi\Auth\Otacs\UserEmailUpdatedOtac::class,
+        UserEmailUpdatedOtac::class,
     ],
 
 ];

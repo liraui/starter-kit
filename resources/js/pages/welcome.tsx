@@ -28,9 +28,9 @@ export default function Welcome() {
                     <div className="bg-background relative aspect-video overflow-hidden rounded-t-xl">
                         <img src="/images/light/full-docs.png" className="block dark:hidden" alt="Docs package" />
                         <img src="/images/dark/full-docs.png" className="hidden dark:block" alt="Docs package" />
-                        <div className="absolute w-full h-full top-0 flex items-center justify-center">
+                        <div className="absolute top-0 flex h-full w-full items-center justify-center">
                             <div className="rounded-full bg-linear-to-br from-transparent from-10% to-yellow-900 p-0.5">
-                                <Button asChild size='lg' className="rounded-full shadow-xl">
+                                <Button asChild size="lg" className="rounded-full shadow-xl">
                                     <a href="https://github.com/liraui/docs">
                                         <BlocksIcon /> View package <ArrowUpRightIcon />
                                     </a>

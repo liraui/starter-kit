@@ -13,7 +13,7 @@ function SidebarLayout({ children, breadcrumbs }: SidebarLayoutProps) {
             <SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
-                    <div className='bg-sidebar sticky top-12 z-50'>
+                    <div className="bg-sidebar sticky top-12 z-50">
                         <div className="bg-muted border-border/50 rounded-t-xl border-b px-8 dark:bg-[#0d0d0d]">
                             <div className="flex h-16 w-full shrink-0 items-center gap-2">
                                 <SidebarTrigger className="-ml-1" />
