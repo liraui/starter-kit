@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab7a83ee6cc5f821eb1a0151b6c21e6a",
+    "content-hash": "f02050f58dc1fd1157d021745ad0d918",
     "packages": [
         {
             "name": "brick/math",
@@ -2649,16 +2649,16 @@
         },
         {
             "name": "liraui/auth",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liraui/auth.git",
-                "reference": "d8d4152fd708687ff7e8913ef32bfdb36e58f282"
+                "reference": "277ac67824b836aecae70f95c21a8e830412839f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liraui/auth/zipball/d8d4152fd708687ff7e8913ef32bfdb36e58f282",
-                "reference": "d8d4152fd708687ff7e8913ef32bfdb36e58f282",
+                "url": "https://api.github.com/repos/liraui/auth/zipball/277ac67824b836aecae70f95c21a8e830412839f",
+                "reference": "277ac67824b836aecae70f95c21a8e830412839f",
                 "shasum": ""
             },
             "require": {
@@ -2717,9 +2717,9 @@
             ],
             "support": {
                 "issues": "https://github.com/liraui/auth/issues",
-                "source": "https://github.com/liraui/auth/tree/v1.1.0"
+                "source": "https://github.com/liraui/auth/tree/v1.1.1"
             },
-            "time": "2026-05-17T03:11:51+00:00"
+            "time": "2026-05-17T04:04:43+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
