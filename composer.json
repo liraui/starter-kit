@@ -24,8 +24,8 @@
         "laravel/sail": "^1.59",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.9.4",
-        "phpstan/phpstan": "^2.1.54",
-        "phpunit/phpunit": "^12.5.25"
+        "pestphp/pest": "^4.7",
+        "phpstan/phpstan": "^2.1.54"
     },
     "autoload": {
         "psr-4": {
@@ -52,10 +52,8 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
         ],
-        "test": [
-            "@php artisan config:clear --ansi",
-            "@php artisan test"
-        ],
+        "test": "vendor/bin/pest",
+        "test-coverage": "XDEBUG_MODE=coverage vendor/bin/pest --coverage",
         "stan": "vendor/bin/phpstan analyse --memory-limit 256m",
         "pint": "vendor/bin/pint",
         "post-autoload-dump": [
